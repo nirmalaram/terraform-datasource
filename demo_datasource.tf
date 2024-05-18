@@ -3,7 +3,11 @@ data "aws_vpc" "existing-vpc" {
   
 }
 data "aws_subnet" "existing-subnet" {
-    id = "subnet-0d2f8456d76ba239a"
+  filter {
+      name = "tag:Name"
+      values = [ "pubSubnet" ]
+    }
+    #id = "subnet-0d2f8456d76ba239a"
   
 }
 data "aws_ami" "linuxami" {
